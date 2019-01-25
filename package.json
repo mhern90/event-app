@@ -1,0 +1,52 @@
+{
+    "name": "fb-event-clone",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "cypress:open": "cypress open",
+        "tailwind:css": "tailwind build src/css/tailwind.src.css -c  tailwind.js -o src/css/tailwind.css",
+        "test": "jest --silent",
+        "test:update": "jest --silent -u",
+        "test:watch": "jest --silent -- --watch",
+        "test:coverage": "jest --silent --coverage",
+        "format": "prettier --write \"src/**/*.{js,jsx,css,json} \"",
+        "lint": "eslint \"**/*.{js,jsx}\"",
+        "dev": "npm run tailwind:css && parcel src/index.html"
+    },
+    "keywords": [],
+    "author": "Melinda Stanbery",
+    "license": "ISC",
+    "dependencies": {
+        "@fortawesome/fontawesome-svg-core": "^1.2.12",
+        "@fortawesome/free-regular-svg-icons": "^5.6.3",
+        "@fortawesome/free-solid-svg-icons": "^5.6.3",
+        "@fortawesome/react-fontawesome": "^0.1.4",
+        "@reach/router": "^1.2.1",
+        "babel-jest": "^23.6.0",
+        "moment": "^2.24.0",
+        "react": "^16.7.0",
+        "react-dom": "^16.7.0",
+        "react-redux": "^6.0.0",
+        "react-test-renderer": "^16.7.0",
+        "redux": "^4.0.1",
+        "redux-thunk": "^2.3.0",
+        "tailwindcss": "^0.7.3"
+    },
+    "devDependencies": {
+        "babel-core": "^6.26.3",
+        "babel-eslint": "^10.0.1",
+        "babel-plugin-transform-class-properties": "^6.24.1",
+        "babel-preset-env": "^1.7.0",
+        "babel-preset-react": "^6.24.1",
+        "babel-runtime": "^6.26.0",
+        "eslint": "^5.12.0",
+        "eslint-config-prettier": "^3.3.0",
+        "eslint-plugin-cypress": "^2.2.0",
+        "eslint-plugin-import": "^2.14.0",
+        "eslint-plugin-react": "^7.12.3",
+        "jest": "^23.6.0",
+        "parcel-bundler": "^1.11.0",
+        "prettier": "^1.15.3"
+    }
+}

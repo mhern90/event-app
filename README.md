@@ -4,6 +4,10 @@ A Facebook event-app clone. Built with React, Redux, Reach Router & Parcel.
 
 Currently "API calls" are being mocked by using localstorage. My intention is to eventually set up a small server to handle GET & POST requests.
 
+Fix:
+
+- mobile nav covers bottom of screen.
+
 Features:
 
 -   View upcomming events on the "My Events" page

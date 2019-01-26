@@ -1,9 +1,12 @@
 {
     "name": "fb-event-clone",
     "version": "1.0.0",
+    "homepage": "https://mhern90.github.io/event-app/",
     "description": "",
     "main": "index.js",
     "scripts": {
+        "prebuild": "rm -rf dist",
+        "build": "parcel build src/index.html --public-url ./",
         "cypress:open": "cypress open",
         "tailwind:css": "tailwind build src/css/tailwind.src.css -c  tailwind.js -o src/css/tailwind.css",
         "test": "jest --silent",
@@ -12,7 +15,9 @@
         "test:coverage": "jest --silent --coverage",
         "format": "prettier --write \"src/**/*.{js,jsx,css,json} \"",
         "lint": "eslint \"**/*.{js,jsx}\"",
-        "dev": "npm run tailwind:css && parcel src/index.html"
+        "dev": "npm run tailwind:css && parcel src/index.html",
+        "predeploy": "npm run build",
+        "deploy": "gh-pages -d dist"
     },
     "keywords": [],
     "author": "Melinda Stanbery",
@@ -24,6 +29,8 @@
         "@fortawesome/react-fontawesome": "^0.1.4",
         "@reach/router": "^1.2.1",
         "babel-jest": "^23.6.0",
+        "gh-pages": "^2.0.1",
+        "lodash": "^4.17.11",
         "moment": "^2.24.0",
         "react": "^16.7.0",
         "react-dom": "^16.7.0",

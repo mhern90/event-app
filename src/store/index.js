@@ -5,6 +5,7 @@ import reducers from "../reducers";
 import initialState from "./initial-state";
 
 import { getEvents } from "../actions/events-actions";
+import { getFriendsList } from '../actions/friends-actions';
 
 const middleware = [thunk];
 const enhancers = [];
@@ -16,6 +17,7 @@ const store = createStore(
     composeEnhancers(applyMiddleware(...middleware), ...enhancers)
 );
 
+store.dispatch(getFriendsList());
 store.dispatch(getEvents());
 
 export default store;

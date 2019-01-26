@@ -29,7 +29,7 @@ class Application extends Component {
                         </div>
                     </div>
                 </nav>
-                <div className="bg-grey-light clearfix min-h-screen">
+                <div className="bg-grey-light clearfix min-h-screen pb-150">
                     <div className="page container-1000 pt-4 mx-auto">
                         <Router>
                             <MyEventsContainer path="/myEvents" />

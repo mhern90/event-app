@@ -14,3 +14,9 @@ export const GET_EVENTS = "GET_EVENTS";
 
 /* Friend Constants */
 export const GET_FRIENDS_LIST = "GET_FRIENDS_LIST";
+export const GET_FRIENDS_ERROR = "GET_FRIENDS_LIST";
+
+/* User Constants */
+export const USER_LOGIN_SUCCESS = "USER_LOGIN_SUCCESS";
+export const USER_LOGOUT = "USER_LOGOUT";
+export const VERIFY_LOGIN = "VERIFY_LOGIN";

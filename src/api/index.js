@@ -1,3 +1,5 @@
+import { uniqueId } from "lodash";
+
 const defaultEvents = [
     {
         id: 1,
@@ -67,5 +69,20 @@ export default {
                 }
             });
         }
+    },
+
+    loginUser(credentials) {
+        return new Promise((resolve, reject) => {
+            const isAuthorized =
+                credentials.username.length > 0 && credentials.password.length;
+            const userId = uniqueId();
+            process.nextTick(() =>
+                isAuthorized
+                    ? resolve({ id: userId })
+                    : reject({
+                          error: "Unable to login."
+                      })
+            );
+        });
     }
 };

@@ -56,8 +56,11 @@ class Application extends Component {
                         <div className="page container-1000 pt-4 mx-auto">
                             <Router>
                                 <MyEventsContainer path="/myEvents" />
-                                <NewEvent path="/newEvent" />
-                                <Redirect from="/" to="/myEvents" />
+                                <NewEvent path="/event-app/newEvent/" />
+                                <Redirect
+                                    from="/event-app/"
+                                    to="/event-app/myEvents/"
+                                />
                             </Router>
                         </div>
                     </div>
@@ -68,9 +71,15 @@ class Application extends Component {
                 <div className="bg-grey-light clearfix min-h-screen pb-150">
                     <div className="page container-1000 pt-4 mx-auto">
                         <Router>
-                            <LoginContainer path="/" />
-                            <Redirect from="/myEvents" to="/" />
-                            <Redirect from="/newEvent" to="/" />
+                            <LoginContainer path="/event-app/" />
+                            <Redirect
+                                from="/event-app/myEvents/"
+                                to="/event-app/"
+                            />
+                            <Redirect
+                                from="/event-app/newEvent/"
+                                to="/event-app/"
+                            />
                         </Router>
                     </div>
                 </div>

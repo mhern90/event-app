@@ -30,14 +30,14 @@ class Application extends Component {
                                 <div className="flex-grow md:flex-none inline-block m-auto md:m-0 text-sm md:text-base text-center md:text-left">
                                     <NavLink
                                         icon={["far", "calendar-alt"]}
-                                        to="myEvents"
+                                        to="/event-app/myEvents/"
                                         text="My Events"
                                     />
                                 </div>
                                 <div className="flex-grow md:flex-none inline-block m-auto md:m-0 text-sm md:text-base text-center md:text-left">
                                     <NavLink
                                         icon={["fas", "calendar-plus"]}
-                                        to="newEvent"
+                                        to="/event-app/newEvent/"
                                         text="New Event"
                                     />
                                 </div>
@@ -55,7 +55,7 @@ class Application extends Component {
                     <div className="bg-grey-light clearfix min-h-screen pb-150">
                         <div className="page container-1000 pt-4 mx-auto">
                             <Router>
-                                <MyEventsContainer path="/myEvents" />
+                                <MyEventsContainer path="/event-app/myEvents/" />
                                 <NewEvent path="/event-app/newEvent/" />
                                 <Redirect
                                     from="/event-app/"

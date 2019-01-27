@@ -60,6 +60,7 @@ class Application extends Component {
                                 <Redirect
                                     from="/event-app/"
                                     to="/event-app/myEvents/"
+                                    noThrow
                                 />
                             </Router>
                         </div>
@@ -75,10 +76,12 @@ class Application extends Component {
                             <Redirect
                                 from="/event-app/myEvents/"
                                 to="/event-app/"
+                                noThrow
                             />
                             <Redirect
                                 from="/event-app/newEvent/"
                                 to="/event-app/"
+                                noThrow
                             />
                         </Router>
                     </div>

@@ -17,6 +17,10 @@ export default {
     friends: [],
     loginCredentials: {
         isAuthorized: false,
-        token: null
+        token: null,
+        formErrors: {
+            username: "",
+            password: ""
+        }
     }
 };

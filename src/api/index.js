@@ -76,13 +76,22 @@ export default {
             const isAuthorized =
                 credentials.username.length > 0 && credentials.password.length;
             const userId = uniqueId();
-            process.nextTick(() =>
-                isAuthorized
-                    ? resolve({ id: userId })
-                    : reject({
-                          error: "Unable to login."
-                      })
-            );
+            let errors = { username: "", password: "" };
+            process.nextTick(() => {
+                if (isAuthorized) {
+                    resolve({ id: userId });
+                } else {
+                    if (credentials.username.length === 0) {
+                        errors.username = "invalid username";
+                    }
+
+                    if (credentials.password.length === 0) {
+                        errors.password = "invalid password";
+                    }
+
+                    reject(errors);
+                }
+            });
         });
     }
 };

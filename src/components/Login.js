@@ -5,10 +5,6 @@ class Login extends Component {
     state = {
         username: "",
         password: "",
-        formErrors: {
-            username: "",
-            password: ""
-        },
         showInstructions: false
     };
 
@@ -27,7 +23,7 @@ class Login extends Component {
 
     clearFormError = e => {
         let name = e.target.name;
-        const { formErrors } = this.state;
+        const { formErrors } = this.props.loginCredentials;
         formErrors[name] = "";
 
         this.setState({ formErrors });
@@ -44,12 +40,12 @@ class Login extends Component {
         const { login } = this.props;
         const { username, password } = this.state;
         let credentials = { username, password };
-        // TODO: add some kind of username & password validation
         login(credentials);
     };
 
     render() {
-        const { username, password, formErrors, showInstructions } = this.state;
+        const { username, password, showInstructions } = this.state;
+        const { formErrors } = this.props.loginCredentials;
         return (
             <div className="flex flex-col h-screen items-center">
                 <div className="w-full self-center container-420">

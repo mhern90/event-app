@@ -12,11 +12,9 @@ class MyEvents extends Component {
     };
 
     componentDidMount() {
-        const { events, getEvents, getFriendsList } = this.props;
+        const { events, getFriendsList } = this.props;
 
         let firstEvent = {};
-
-        getEvents();
         getFriendsList();
 
         if (events.length > 0) {

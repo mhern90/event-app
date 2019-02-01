@@ -53,6 +53,7 @@ select.error {
 
 .input-field-container .label,
 .textarea-field-container .label {
+    pointer-events: none;
     font-size: 16px;
     position: absolute;
     top: 18px;

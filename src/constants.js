@@ -11,10 +11,12 @@ export const RESET_EVENT = "RESET_EVENT";
 /* Events Constants */
 
 export const GET_EVENTS = "GET_EVENTS";
+export const UPDATE_EVENTS = "UPDATE_EVENTS";
 
 /* Friend Constants */
 export const GET_FRIENDS_LIST = "GET_FRIENDS_LIST";
 export const GET_FRIENDS_ERROR = "GET_FRIENDS_LIST";
+export const GET_MY_FRIENDS = "GET_MY_FRIENDS";
 
 /* User Constants */
 export const USER_LOGIN_SUCCESS = "USER_LOGIN_SUCCESS";

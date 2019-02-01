@@ -4,7 +4,7 @@ import {
     USER_LOGOUT,
     VERIFY_LOGIN
 } from "../constants";
-import { getEvents } from "../actions/events-actions";
+import { getFriendsList } from "../actions/friends-actions";
 import Api from "../api";
 
 export const login = credentials => {
@@ -12,7 +12,7 @@ export const login = credentials => {
         Api.loginUser(credentials)
             .then(data => {
                 dispatch({ type: USER_LOGIN_SUCCESS, data });
-                dispatch(getEvents());
+                dispatch(getFriendsList());
             })
             .catch(error => {
                 dispatch({ type: USER_LOGIN_FAIL, error });

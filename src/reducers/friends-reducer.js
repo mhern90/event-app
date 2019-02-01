@@ -1,5 +1,9 @@
 import uniqueId from "lodash/uniqueId";
-import { GET_FRIENDS_LIST, GET_FRIENDS_ERROR } from "../constants";
+import {
+    GET_FRIENDS_LIST,
+    GET_FRIENDS_ERROR,
+    GET_MY_FRIENDS
+} from "../constants";
 
 export default function(state = [], action) {
     if (action.type === GET_FRIENDS_LIST) {
@@ -14,11 +18,22 @@ export default function(state = [], action) {
             friends.push(friend);
         });
 
+        localStorage.setItem("friends", JSON.stringify(friends));
+
         return friends;
     }
 
     if (action.type === GET_FRIENDS_ERROR) {
         return [{ id: 0, name: "Cannot load friends at this time" }];
+    }
+
+    if (action.type === GET_MY_FRIENDS) {
+        let friends = localStorage.getItem("friends");
+        if (friends !== null) {
+            friends = JSON.parse(friends);
+        }
+
+        return friends;
     }
 
     return state;

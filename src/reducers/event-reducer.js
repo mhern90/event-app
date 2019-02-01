@@ -7,21 +7,6 @@ import {
     REMOVE_GUESTS
 } from "../constants";
 
-const resetEvent = {
-    id: 0,
-    name: "",
-    datetimeStart: "",
-    datetimeEnd: "",
-    address: {
-        street: "",
-        city: "",
-        state: "",
-        zipcode: ""
-    },
-    description: "",
-    guests: []
-};
-
 export default function(state = {}, action) {
     if (action.type === SET_CURRENT_EVENT) {
         const { events, id } = action.payload;
@@ -31,6 +16,21 @@ export default function(state = {}, action) {
     }
 
     if (action.type === RESET_EVENT) {
+        const resetEvent = {
+            id: 0,
+            name: "",
+            datetimeStart: "",
+            datetimeEnd: "",
+            address: {
+                street: "",
+                city: "",
+                state: "",
+                zipcode: ""
+            },
+            description: "",
+            guests: []
+        };
+
         return resetEvent;
     }
 
@@ -68,7 +68,17 @@ export default function(state = {}, action) {
     }
 
     if (action.type === POST_EVENT) {
-        console.log(state);
+        const resetEvent = {
+            id: 0,
+            name: "",
+            datetimeStart: "",
+            datetimeEnd: "",
+            address: { street: "", city: "", state: "", zipcode: "" },
+            description: "",
+            guests: []
+        };
+
+        return resetEvent;
     }
 
     return state;

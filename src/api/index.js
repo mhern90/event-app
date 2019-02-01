@@ -62,13 +62,28 @@ export default {
                 "events",
                 JSON.stringify([...events, eventToAdd])
             );
-        } else {
-            events.forEach((event, i) => {
-                if (event.id === eventToAdd.id) {
-                    events[i] = eventToAdd;
-                }
-            });
         }
+
+        return new Promise((resolve, reject) => {
+            process.nextTick(() => {
+                resolve({ status: 200 });
+            });
+        });
+    },
+
+    editEvent(eventToUpdate) {
+        const events = JSON.parse(localStorage.getItem("events"));
+        events.forEach((event, i) => {
+            if (event.id === eventToUpdate.id) {
+                events[i] = eventToUpdate;
+            }
+        });
+        localStorage.setItem("events", JSON.stringify([...events]));
+        return new Promise((resolve, reject) => {
+            process.nextTick(() => {
+                resolve({ status: 200, events });
+            });
+        });
     },
 
     loginUser(credentials) {

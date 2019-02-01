@@ -1,6 +1,10 @@
-import { GET_FRIENDS_LIST, GET_FRIENDS_ERROR } from "../constants";
+import {
+    GET_FRIENDS_LIST,
+    GET_FRIENDS_ERROR,
+    GET_MY_FRIENDS
+} from "../constants";
 
-// At some point this would be an async fetch from an API endpoint
+// Randomly Generate a friends list
 export const getFriendsList = () => {
     return dispatch => {
         fetch("https://uinames.com/api/?region=united+states&amount=10")
@@ -20,3 +24,7 @@ export const getFriendsList = () => {
             });
     };
 };
+
+export const getMyFriends = () => ({
+    type: GET_MY_FRIENDS
+});

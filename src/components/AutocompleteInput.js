@@ -19,6 +19,13 @@ class AutocompleteInput extends Component {
         isAutocompleting: false
     };
 
+    componentDidMount() {
+        const { defaultListItems } = this.props;
+        if (defaultListItems.length > 0) {
+            this.setState({ listItems: defaultListItems });
+        }
+    }
+
     handleListItemInputChange = e => {
         const value = e.target.value,
             listItems = this.state.listItems,

@@ -21,6 +21,10 @@ class CreateEventForm extends Component {
         }
     };
 
+    componentDidMount() {
+        this.props.getMyFriends();
+    }
+
     clearFormError = e => {
         let name = e.target.name;
         const { formErrors } = this.state;
@@ -41,15 +45,28 @@ class CreateEventForm extends Component {
     };
 
     handleSubmit = e => {
-        const { event, saveEvent, resetCurrentEvent } = this.props;
+        const {
+            event,
+            saveNewEvent,
+            updateEvent,
+            resetCurrentEvent
+        } = this.props;
         let { formErrors } = this.state;
+
         e.preventDefault();
 
         if (this.validateEventForm(event)) {
             Object.keys(formErrors).forEach(v => (formErrors[v] = ""));
             this.setState({ formErrors });
-            saveEvent();
-            resetCurrentEvent();
+            // Clear the form if not editing
+            if (event.id === 0) {
+                saveNewEvent(event);
+            } else {
+                updateEvent(event);
+                if (typeof this.props.closeEditMode === "function") {
+                    this.props.closeEditMode();
+                }
+            }
         }
     };
 
@@ -109,7 +126,8 @@ class CreateEventForm extends Component {
             address,
             datetimeStart,
             datetimeEnd,
-            description
+            description,
+            guests
         } = this.props.event;
 
         const { friends, addGuestToEvent, removeGuestFromEvent } = this.props;
@@ -231,11 +249,13 @@ class CreateEventForm extends Component {
                     <div className="flex">
                         <div className="w-full">
                             <AutocompleteInput
+                                key={id}
                                 addedItemsLabel="Invited Guests:"
                                 placeholder="Add Guest"
                                 name="guests"
                                 allowDuplicates={false}
                                 autocompleteItems={friends}
+                                defaultListItems={guests}
                                 addItem={addGuestToEvent}
                                 removeItem={removeGuestFromEvent}
                                 required={true}

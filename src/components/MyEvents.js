@@ -12,12 +12,17 @@ class MyEvents extends Component {
     };
 
     componentDidMount() {
-        const { events, getFriendsList } = this.props;
+        const { getEvents } = this.props;
+        getEvents();
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        let { selectedId } = prevState;
+        const { events } = this.props;
 
         let firstEvent = {};
-        getFriendsList();
 
-        if (events.length > 0) {
+        if (selectedId === 0) {
             firstEvent = events[0];
             this.toggleEventDetail(firstEvent.id);
         }
@@ -50,6 +55,10 @@ class MyEvents extends Component {
 
     toggleEditMode = () => {
         this.setState({ isEditing: !this.state.isEditing });
+    };
+
+    closeEditMode = () => {
+        this.setState({ isEditing: false });
     };
 
     filterGuests = (guests, status) => {
@@ -182,7 +191,9 @@ class MyEvents extends Component {
                                         </div>
                                     </div>
                                 ) : (
-                                    <CreateEventFormContainer />
+                                    <CreateEventFormContainer
+                                        closeEditMode={this.closeEditMode}
+                                    />
                                 )}
                             </div>
                         )}

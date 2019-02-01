@@ -38,14 +38,15 @@ export const setCurrentEvent = id => {
     };
 };
 
-export const postEvent = () => {
-    return (dispatch, getState) => {
-        const state = getState();
-        const { currentEvent, events } = state;
-        Api.postEvent(currentEvent);
-        dispatch({
-            type: POST_EVENT,
-            payload: { currentEvent, events }
+export const postEvent = newEvent => {
+    return dispatch => {
+        Api.postEvent(newEvent).then(data => {
+            if (data.status == 200) {
+                dispatch({
+                    type: POST_EVENT,
+                    payload: { newEvent }
+                });
+            }
         });
     };
 };

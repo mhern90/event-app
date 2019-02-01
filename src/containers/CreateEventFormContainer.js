@@ -10,6 +10,10 @@ import {
     resetCurrentEvent
 } from "../actions/event-actions";
 
+import { updateEvent } from "../actions/events-actions";
+
+import { getMyFriends } from "../actions/friends-actions";
+
 const mapStateToProps = ({ currentEvent, friends }) => {
     return { event: currentEvent, friends };
 };
@@ -24,14 +28,20 @@ const mapDispatchToProps = dispatch => ({
     removeGuestFromEvent(guestToRemove) {
         dispatch(removeGuestFromEvent(guestToRemove));
     },
-    saveEvent(event) {
+    saveNewEvent(event) {
         dispatch(postEvent(event));
+    },
+    updateEvent(event) {
+        dispatch(updateEvent(event));
     },
     setCurrentEvent(id) {
         dispatch(setCurrentEvent(id));
     },
     resetCurrentEvent() {
         dispatch(resetCurrentEvent());
+    },
+    getMyFriends() {
+        dispatch(getMyFriends());
     }
 });
 

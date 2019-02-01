@@ -4,7 +4,6 @@ import MyEvents from "../components/MyEvents";
 
 import { setCurrentEvent, resetCurrentEvent } from "../actions/event-actions";
 import { getEvents } from "../actions/events-actions";
-import { getFriendsList } from "../actions/friends-actions";
 
 const mapStateToProps = ({ events, friends, currentEvent }) => {
     return { events, friends, currentEvent };
@@ -19,9 +18,6 @@ const mapDispatchToProps = dispatch => ({
     },
     resetCurrentEvent() {
         dispatch(resetCurrentEvent());
-    },
-    getFriendsList() {
-        dispatch(getFriendsList());
     }
 });
 
